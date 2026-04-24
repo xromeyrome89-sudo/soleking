@@ -1,120 +1,231 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="de">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.5">
-  <style type="text/css">
-    body {background-color: #0a0a0a}
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 21.6px 'Helvetica Neue'; color: #f2f1ec; -webkit-text-stroke: #f2f1ec}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 8.4px 'Helvetica Neue'; color: #0a0a0a; -webkit-text-stroke: #0a0a0a; background-color: #e3ff38}
-    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 64.0px 'Helvetica Neue'; color: #e3ff38; -webkit-text-stroke: #e3ff38}
-    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #757575; -webkit-text-stroke: #757575}
-    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.8px 'Helvetica Neue'; color: #0a0a0a; -webkit-text-stroke: #0a0a0a; background-color: #e3ff38}
-    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.8px 'Helvetica Neue'; color: #f2f1ec; -webkit-text-stroke: #f2f1ec}
-    p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; font: 96.0px 'Helvetica Neue'; color: #f2f1ec; -webkit-text-stroke: #f2f1ec}
-    p.p10 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px 'Helvetica Neue'; color: #0a0a0a; -webkit-text-stroke: #0a0a0a; background-color: #e3ff38}
-    p.p11 {margin: 0.0px 0.0px 0.0px 0.0px; font: 42.0px 'Helvetica Neue'; color: #e3ff38; -webkit-text-stroke: #e3ff38}
-    p.p12 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.6px 'Helvetica Neue'; color: #535353; -webkit-text-stroke: #535353}
-    p.p13 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 8.4px 'Helvetica Neue'; color: #434343; -webkit-text-stroke: #434343}
-    p.p14 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 15.6px 'Helvetica Neue'; color: #262626; -webkit-text-stroke: #262626}
-    p.p15 {margin: 0.0px 0.0px 0.0px 0.0px; font: 8.4px 'Helvetica Neue'; color: #e3ff38; -webkit-text-stroke: #e3ff38}
-    p.p17 {margin: 0.0px 0.0px 24.0px 0.0px; font: 11.4px 'Helvetica Neue'; color: #757575; -webkit-text-stroke: #757575}
-    p.p19 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #0a0a0a; -webkit-text-stroke: #0a0a0a}
-    p.p20 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.2px 'Helvetica Neue'; color: #f2f1ec; -webkit-text-stroke: #f2f1ec}
-    p.p21 {margin: 0.0px 0.0px 0.0px 0.0px; font: 8.6px 'Helvetica Neue'; color: #535353; -webkit-text-stroke: #535353; background-color: #40a33f; min-height: 10.0px}
-    p.p22 {margin: 0.0px 0.0px 0.0px 0.0px; font: 8.6px 'Helvetica Neue'; color: #535353; -webkit-text-stroke: #535353}
-    p.p23 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 36.0px '.Apple Color Emoji UI'; color: #f2f1ec; -webkit-text-stroke: #f2f1ec}
-    p.p24 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 10.2px 'Helvetica Neue'; color: #434343; -webkit-text-stroke: #434343; background-color: #151515; min-height: 12.0px}
-    p.p25 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 10.2px 'Helvetica Neue'; color: #434343; -webkit-text-stroke: #434343; background-color: #151515}
-    p.p26 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 10.2px 'Helvetica Neue'; color: #434343; -webkit-text-stroke: #434343; min-height: 12.0px}
-    p.p27 {margin: 0.0px 0.0px 0.0px 0.0px; font: 18.0px '.Apple Color Emoji UI'; color: #f2f1ec; -webkit-text-stroke: #f2f1ec}
-    p.p28 {margin: 0.0px 0.0px 0.0px 0.0px; font: 18.0px 'Helvetica Neue'; color: #f2f1ec; -webkit-text-stroke: #f2f1ec}
-    p.p29 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.6px 'Helvetica Neue'; color: #535353; -webkit-text-stroke: #535353}
-    p.p30 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.6px 'Helvetica Neue'; color: #535353; -webkit-text-stroke: #535353; min-height: 12.0px}
-    p.p31 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.6px 'Helvetica Neue'; color: #e3ff38; -webkit-text-stroke: #e3ff38}
-    p.p32 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.4px 'Helvetica Neue'; color: #262626; -webkit-text-stroke: #262626}
-    p.p33 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.4px 'Helvetica Neue'; color: #343434; -webkit-text-stroke: #343434}
-    li.li2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.2px 'Helvetica Neue'; color: #757575; -webkit-text-stroke: #757575}
-    li.li18 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.8px 'Helvetica Neue'; color: #c1c1c1; -webkit-text-stroke: #c1c1c1}
-    span.s1 {font-kerning: none; background-color: rgba(10, 10, 10, 0.85)}
-    span.s2 {font-kerning: none; color: #e3ff38; background-color: rgba(10, 10, 10, 0.85); -webkit-text-stroke: 0px #e3ff38}
-    span.s3 {background-color: rgba(10, 10, 10, 0.85); -webkit-text-stroke: 0px #000000}
-    span.s4 {font-kerning: none}
-    span.s5 {font: 10.8px 'Helvetica Neue'; font-kerning: none; color: #f2f1ec; background-color: transparent; -webkit-text-stroke: 0px #f2f1ec}
-    span.s6 {font-kerning: none; background-color: #151515}
-    span.s7 {-webkit-text-stroke: 0px #000000}
-    span.s8 {font: 12.0px 'Helvetica Neue'; font-kerning: none; color: #f2f1ec; -webkit-text-stroke: 0px #f2f1ec}
-    span.s9 {font-kerning: none; background-color: #e3ff38}
-    span.s10 {font-kerning: none; background-color: #111111}
-    span.s11 {font: 9.6px 'Helvetica Neue'; font-kerning: none; color: #e3ff38; background-color: transparent; -webkit-text-stroke: 0px #e3ff38}
-    span.s12 {font-kerning: none; color: #e3ff38; -webkit-text-stroke: 0px #e3ff38}
-    ul.ul1 {list-style-type: disc}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SoleKing – Dein Schuhladen in Neu-Ulm</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #0a0a0a;
+      --white: #f5f4f0;
+      --accent: #e8ff47;
+      --gray: #1c1c1c;
+      --mid: #3a3a3a;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--white); font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 2.5rem;
+      background: rgba(10,10,10,0.85); backdrop-filter: blur(12px);
+      border-bottom: 1px solid #222;
+    }
+    .logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 0.08em; color: var(--white); }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: #888; text-decoration: none; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent); }
+
+    .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 80px; }
+    .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 5rem 3rem 5rem 4rem; }
+    .hero-tag { display: inline-block; background: var(--accent); color: var(--black); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.4rem 0.9rem; margin-bottom: 2rem; width: fit-content; animation: fadeUp 0.6s ease both; }
+    .hero-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(4rem, 8vw, 7rem); line-height: 0.95; letter-spacing: 0.02em; animation: fadeUp 0.7s ease 0.1s both; }
+    .hero-title em { font-style: normal; color: var(--accent); display: block; }
+    .hero-sub { margin-top: 2rem; color: #888; font-size: 1rem; line-height: 1.7; max-width: 380px; animation: fadeUp 0.7s ease 0.2s both; }
+    .hero-cta { margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.7s ease 0.3s both; }
+    .btn-primary { background: var(--accent); color: var(--black); border: none; padding: 0.9rem 2rem; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; text-decoration: none; display: inline-block; transition: transform 0.15s, background 0.15s; }
+    .btn-primary:hover { transform: translateY(-2px); background: #d4eb00; }
+    .btn-secondary { background: transparent; color: var(--white); border: 1px solid #333; padding: 0.9rem 2rem; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; text-decoration: none; display: inline-block; transition: border-color 0.2s, color 0.2s; }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+    .hero-right { position: relative; overflow: hidden; background: var(--gray); }
+    .hero-img-grid { display: grid; grid-template-rows: 1fr 1fr; height: 100%; }
+    .hero-img-top { background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #333; position: relative; overflow: hidden; }
+    .shoe-placeholder { font-family: 'Bebas Neue', sans-serif; font-size: 8rem; opacity: 0.06; position: absolute; letter-spacing: -0.05em; }
+    .brand-pill { background: var(--accent); color: var(--black); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.5rem 1.2rem; z-index: 1; }
+    .hero-img-bottom { display: grid; grid-template-columns: 1fr 1fr; }
+    .stat-box { padding: 2rem; border-right: 1px solid #333; display: flex; flex-direction: column; justify-content: flex-end; }
+    .stat-box:last-child { border-right: none; border-left: 1px solid #333; }
+    .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; color: var(--accent); line-height: 1; }
+    .stat-label { font-size: 0.8rem; color: #666; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.3rem; }
+
+    .chat-section { padding: 7rem 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; border-top: 1px solid #1a1a1a; }
+    .section-label { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; }
+    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 4vw, 4rem); line-height: 1; letter-spacing: 0.02em; margin-bottom: 1.5rem; }
+    .section-body { color: #888; font-size: 0.95rem; line-height: 1.8; margin-bottom: 2rem; }
+    .feature-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
+    .feature-list li { display: flex; align-items: center; gap: 0.8rem; font-size: 0.9rem; color: #ccc; }
+    .feature-list li::before { content: ''; width: 6px; height: 6px; background: var(--accent); flex-shrink: 0; }
+
+    .bot-frame { background: var(--gray); border: 1px solid #2a2a2a; height: 520px; position: relative; overflow: hidden; }
+    .bot-frame-header { background: #161616; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 0.8rem; border-bottom: 1px solid #2a2a2a; }
+    .bot-avatar { width: 32px; height: 32px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 1rem; color: var(--black); }
+    .bot-name { font-size: 0.85rem; font-weight: 500; }
+    .bot-status { display: flex; align-items: center; gap: 0.4rem; font-size: 0.72rem; color: #666; }
+    .status-dot { width: 6px; height: 6px; background: #4caf50; border-radius: 50%; animation: pulse 2s ease infinite; }
+
+    .brands-section { padding: 4rem; border-top: 1px solid #1a1a1a; border-bottom: 1px solid #1a1a1a; }
+    .brands-label { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: #555; margin-bottom: 2rem; text-align: center; }
+    .brands-grid { display: flex; gap: 0; flex-wrap: nowrap; overflow: hidden; }
+    .brand-item { flex: 1; padding: 1.5rem; text-align: center; border-right: 1px solid #1a1a1a; font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 0.1em; color: #333; transition: color 0.2s; }
+    .brand-item:last-child { border-right: none; }
+    .brand-item:hover { color: var(--accent); }
+
+    .info-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid #1a1a1a; }
+    .info-card { padding: 3.5rem 3rem; border-right: 1px solid #1a1a1a; }
+    .info-card:last-child { border-right: none; }
+    .info-icon { font-size: 1.5rem; margin-bottom: 1.2rem; }
+    .info-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.05em; margin-bottom: 0.8rem; }
+    .info-text { color: #666; font-size: 0.88rem; line-height: 1.8; }
+
+    footer { padding: 2rem 4rem; border-top: 1px solid #1a1a1a; display: flex; justify-content: space-between; align-items: center; }
+    .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 0.1em; color: #333; }
+    .footer-logo span { color: var(--accent); }
+    .footer-copy { font-size: 0.78rem; color: #444; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { min-height: 260px; }
+      .hero-left { padding: 4rem 1.5rem 3rem; }
+      .chat-section { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 1.5rem; }
+      .info-grid { grid-template-columns: 1fr; }
+      .info-card { border-right: none; border-bottom: 1px solid #1a1a1a; }
+      .brands-grid { flex-wrap: wrap; }
+      .brand-item { flex: 0 0 33%; border-bottom: 1px solid #1a1a1a; }
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+      .brands-section, footer { padding: 3rem 1.5rem; }
+    }
   </style>
 </head>
 <body>
-<p class="p1"><span class="s1">Sole</span><span class="s2">King</span></p>
-<ul class="ul1">
-  <li class="li2"><span class="s3"></span><span class="s1">KI-ASSISTENT</span></li>
-  <li class="li2"><span class="s3"></span><span class="s1">INFO</span></li>
-  <li class="li2"><span class="s3"><a href="tel:073112345678"><span class="s4">0731 / 123 456 78</span></a></span></li>
-</ul>
-<p class="p3"><span class="s4">NEU-ULM · BAHNHOFSTRASSE 12</span></p>
-<h1 style="margin: 0.0px 0.0px 0.0px 0.0px; font: 64.0px 'Helvetica Neue'; color: #f2f1ec; -webkit-text-stroke: #f2f1ec"><span class="s4">Dein Step.</span></h1>
-<p class="p5"><span class="s4">Dein King.</span></p>
-<p class="p6"><span class="s4">Sneaker, Business &amp; Sport – persönlich beraten, direkt vor Ort. Oder frag einfach Sole, unseren digitalen Assistenten – rund um die Uhr.</span></p>
-<p class="p7"><span class="s4">SOLE FRAGEN →</span></p>
-<p class="p8"><span class="s4"><a href="tel:073112345678">ANRUFEN<span class="s5"></span></a></span></p>
-<p class="p9"><span class="s6">SOLE</span></p>
-<p class="p10"><span class="s4">NIKE · ADIDAS · NEW BALANCE</span></p>
-<p class="p11"><span class="s6">8+</span></p>
-<p class="p12"><span class="s6">MARKEN IM SORTIMENT</span></p>
-<p class="p11"><span class="s6">30</span></p>
-<p class="p12"><span class="s6">TAGE RÜCKGABE</span></p>
-<p class="p13"><span class="s4">UNSERE MARKEN</span></p>
-<p class="p14"><span class="s4">Nike</span></p>
-<p class="p14"><span class="s4">Adidas</span></p>
-<p class="p14"><span class="s4">New Balance</span></p>
-<p class="p14"><span class="s4">Vans</span></p>
-<p class="p14"><span class="s4">On Running</span></p>
-<p class="p14"><span class="s4">Dr. Martens</span></p>
-<p class="p14"><span class="s4">Birkenstock</span></p>
-<p class="p15"><span class="s4">KI-ASSISTENT</span></p>
-<h2 style="margin: 0.0px 0.0px 18.0px 0.0px; font: 32.0px 'Helvetica Neue'; color: #f2f1ec; -webkit-text-stroke: #f2f1ec"><span class="s4">Frag Sole –<br>
-Immer da.</span></h2>
-<p class="p17"><span class="s4">Sole ist unser digitaler Assistent – er kennt unser Sortiment, unsere Öffnungszeiten und kann dir bei der Auswahl helfen. Jederzeit, ohne Wartezeit.</span></p>
-<ul class="ul1">
-  <li class="li18"><span class="s7"></span><span class="s4">Größen- und Modellberatung</span><span class="s8"> </span><span class="s4">Infos zu Versand &amp; Rückgabe</span><span class="s8"> </span><span class="s4">Beratungstermin anfragen</span><span class="s8"> </span><span class="s4">Öffnungszeiten &amp; Standort</span><span class="s8"> </span><span class="s4">Zahlungsarten &amp; Gutscheine</span></li>
-</ul>
-<p class="p19"><span class="s9">S</span></p>
-<p class="p20"><span class="s10">Sole · SoleKing Assistent</span></p>
-<p class="p21"><span class="s4"></span><br></p>
-<p class="p22"><span class="s10">Online – antwortet sofort</span></p>
-<p class="p23"><span class="s6">💬</span></p>
-<p class="p24"><span class="s4"></span><br></p>
-<p class="p25"><span class="s4"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"&gt;&lt;/script&gt;</span></p>
-<p class="p25"><span class="s4">&lt;script src="https://files.bpcontent.cloud/2026/04/22/16/20260422165920-Q6CSAVJB.js" defer&gt;&lt;/script&gt;</span></p>
-<p class="p26"><span class="s6"><span class="Apple-converted-space">    </span></span></p>
-<p class="p27"><span class="s4">📍</span></p>
-<p class="p28"><span class="s4">Standort</span></p>
-<p class="p29"><span class="s4">Bahnhofstraße 12</span></p>
-<p class="p29"><span class="s4">89231 Neu-Ulm</span></p>
-<p class="p30"><span class="s4"></span><br></p>
-<p class="p31"><span class="s4"><a href="https://maps.google.com/">ROUTE PLANEN →<span class="s11"></span></a></span></p>
-<p class="p27"><span class="s4">🕐</span></p>
-<p class="p28"><span class="s4">Öffnungszeiten</span></p>
-<p class="p29"><span class="s4">Mo – Fr   09:30 – 19:00</span></p>
-<p class="p29"><span class="s4">Samstag  09:30 – 18:00</span></p>
-<p class="p29"><span class="s4">Sonntag  geschlossen</span></p>
-<p class="p27"><span class="s4">📦</span></p>
-<p class="p28"><span class="s4">Versand &amp; Rückgabe</span></p>
-<p class="p29"><span class="s4">Versand ab 4,95 € · gratis ab 80 €</span></p>
-<p class="p29"><span class="s4">Lieferzeit 2–4 Werktage</span></p>
-<p class="p29"><span class="s4">30 Tage Rückgaberecht</span></p>
-<p class="p29"><span class="s4">Kostenloses Retourenlabel</span></p>
-<p class="p32"><span class="s4">Sole</span><span class="s12">King</span></p>
-<p class="p33"><span class="s4">© 2025 SoleKing · Bahnhofstraße 12 · 89231 Neu-Ulm · hallo@soleking-demo.de</span></p>
+
+  <nav>
+    <div class="logo">Sole<span>King</span></div>
+    <ul class="nav-links">
+      <li><a href="#chat">KI-Assistent</a></li>
+      <li><a href="#info">Info</a></li>
+      <li><a href="tel:073112345678">0731 / 123 456 78</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-tag">Neu-Ulm · Bahnhofstraße 12</div>
+      <h1 class="hero-title">Dein Step.<br><em>Dein King.</em></h1>
+      <p class="hero-sub">Sneaker, Business &amp; Sport – persönlich beraten, direkt vor Ort. Oder frag einfach Sole, unseren digitalen Assistenten – rund um die Uhr.</p>
+      <div class="hero-cta">
+        <a href="#chat" class="btn-primary">Sole fragen →</a>
+        <a href="tel:073112345678" class="btn-secondary">Anrufen</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-img-grid">
+        <div class="hero-img-top">
+          <div class="shoe-placeholder">SOLE</div>
+          <div class="brand-pill">Nike · Adidas · New Balance</div>
+        </div>
+        <div class="hero-img-bottom">
+          <div class="stat-box">
+            <div class="stat-num">8+</div>
+            <div class="stat-label">Marken im Sortiment</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">30</div>
+            <div class="stat-label">Tage Rückgabe</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="brands-section">
+    <div class="brands-label">Unsere Marken</div>
+    <div class="brands-grid">
+      <div class="brand-item">Nike</div>
+      <div class="brand-item">Adidas</div>
+      <div class="brand-item">New Balance</div>
+      <div class="brand-item">Vans</div>
+      <div class="brand-item">On Running</div>
+      <div class="brand-item">Dr. Martens</div>
+      <div class="brand-item">Birkenstock</div>
+    </div>
+  </section>
+
+  <section class="chat-section" id="chat">
+    <div class="chat-left">
+      <div class="section-label">KI-Assistent</div>
+      <h2 class="section-title">Frag Sole –<br>Immer da.</h2>
+      <p class="section-body">Sole ist unser digitaler Assistent – er kennt unser Sortiment, unsere Öffnungszeiten und kann dir bei der Auswahl helfen. Jederzeit, ohne Wartezeit.</p>
+      <ul class="feature-list">
+        <li>Größen- und Modellberatung</li>
+        <li>Infos zu Versand &amp; Rückgabe</li>
+        <li>Beratungstermin anfragen</li>
+        <li>Öffnungszeiten &amp; Standort</li>
+        <li>Zahlungsarten &amp; Gutscheine</li>
+      </ul>
+    </div>
+    <div class="chat-right">
+      <div class="bot-frame">
+        <div class="bot-frame-header">
+          <div class="bot-avatar">S</div>
+          <div>
+            <div class="bot-name">Sole · SoleKing Assistent</div>
+            <div class="bot-status">
+              <span class="status-dot"></span>
+              Online – antwortet sofort
+            </div>
+          </div>
+        </div>
+        <!-- BOTPRESS EMBED -->
+        <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
+        <script src="https://files.bpcontent.cloud/2026/04/22/16/20260422165920-Q6CSAVJB.js" defer></script>
+      </div>
+    </div>
+  </section>
+
+  <section class="info-grid" id="info">
+    <div class="info-card">
+      <div class="info-icon">📍</div>
+      <div class="info-title">Standort</div>
+      <div class="info-text">
+        Bahnhofstraße 12<br>89231 Neu-Ulm<br><br>
+        <a href="https://maps.google.com" style="color: var(--accent); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;">Route planen →</a>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">🕐</div>
+      <div class="info-title">Öffnungszeiten</div>
+      <div class="info-text">
+        Mo – Fr &nbsp;&nbsp;09:30 – 19:00<br>
+        Samstag &nbsp;09:30 – 18:00<br>
+        Sonntag &nbsp;geschlossen
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-icon">📦</div>
+      <div class="info-title">Versand &amp; Rückgabe</div>
+      <div class="info-text">
+        Versand ab 4,95 € · gratis ab 80 €<br>
+        Lieferzeit 2–4 Werktage<br>
+        30 Tage Rückgaberecht<br>
+        Kostenloses Retourenlabel
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Sole<span>King</span></div>
+    <div class="footer-copy">© 2025 SoleKing · Bahnhofstraße 12 · 89231 Neu-Ulm · hallo@soleking-demo.de</div>
+  </footer>
+
 </body>
 </html>
