@@ -44,6 +44,10 @@
       text-decoration: none;
     }
 
+    button {
+      font-family: inherit;
+    }
+
     .topbar {
       background: var(--dark);
       color: white;
@@ -93,7 +97,18 @@
       font-weight: 800;
     }
 
-    .navlinks a:hover {
+    .navlinks a,
+    .navlinks button {
+      color: var(--dark);
+      background: transparent;
+      border: none;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .navlinks a:hover,
+    .navlinks button:hover {
       color: var(--accent);
     }
 
@@ -414,10 +429,10 @@
 
     .chat-preview {
       margin-top: 18px;
-      border-radius: 22px;
+      border-radius: 28px;
       overflow: hidden;
       border: 1px solid var(--border);
-      height: 620px;
+      height: 680px;
       background: white;
       box-shadow: var(--shadow);
     }
@@ -428,12 +443,12 @@
       border: 0;
     }
 
-    .floating-chat {
+    .floating-chat-button {
       position: fixed;
       right: 22px;
       bottom: 22px;
       z-index: 100;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 10px;
       background: var(--accent);
@@ -441,13 +456,76 @@
       padding: 15px 18px;
       border-radius: 999px;
       font-weight: 900;
+      border: none;
+      cursor: pointer;
       box-shadow: 0 18px 42px rgba(182, 58, 42, 0.36);
       transition: 0.2s ease;
     }
 
-    .floating-chat:hover {
+    .floating-chat-button:hover {
       transform: translateY(-3px);
       background: var(--accent-dark);
+    }
+
+    .chat-widget {
+      position: fixed;
+      right: 22px;
+      bottom: 88px;
+      width: 420px;
+      max-width: calc(100vw - 32px);
+      height: 690px;
+      max-height: calc(100vh - 120px);
+      z-index: 120;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: 0 25px 70px rgba(33, 24, 19, 0.24);
+      display: none;
+    }
+
+    .chat-widget.open {
+      display: block;
+    }
+
+    .chat-widget-header {
+      height: 58px;
+      background: var(--dark);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 0 16px;
+      font-weight: 900;
+    }
+
+    .chat-widget-header span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .chat-close {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: none;
+      background: rgba(255,255,255,0.13);
+      color: white;
+      font-size: 22px;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .chat-close:hover {
+      background: rgba(255,255,255,0.22);
+    }
+
+    .chat-widget iframe {
+      width: 100%;
+      height: calc(100% - 58px);
+      border: 0;
     }
 
     footer {
@@ -495,7 +573,7 @@
       }
 
       .chat-preview {
-        height: 580px;
+        height: 640px;
       }
     }
 
@@ -528,14 +606,24 @@
         padding: 22px;
       }
 
-      .floating-chat {
+      .floating-chat-button {
         left: 16px;
         right: 16px;
         justify-content: center;
       }
 
+      .chat-widget {
+        left: 12px;
+        right: 12px;
+        bottom: 84px;
+        width: auto;
+        height: 72vh;
+        max-height: 72vh;
+        border-radius: 22px;
+      }
+
       .chat-preview {
-        height: 540px;
+        height: 600px;
       }
     }
   </style>
@@ -543,7 +631,7 @@
 
 <body>
   <div class="topbar">
-    🍝 Demo-Webseite mit integriertem KI-Chatbot – perfekt als Verkaufsbeispiel für Restaurants
+    🍝 Demo-Webseite mit integriertem KI-Chatbot – der Bot öffnet direkt auf dieser Seite
   </div>
 
   <nav class="navbar">
@@ -556,7 +644,7 @@
       <a href="#speisekarte">Speisekarte</a>
       <a href="#zeiten">Öffnungszeiten</a>
       <a href="#chatbot">Chatbot testen</a>
-      <a href="#kontakt">Kontakt</a>
+      <button type="button" onclick="openChat()">Chat öffnen</button>
     </div>
   </nav>
 
@@ -568,12 +656,12 @@
         <p>
           Willkommen bei Bella Tavola – deinem gemütlichen italienischen Restaurant
           mit hausgemachter Pasta, Pizza aus dem Steinofen und herzlichem Service.
-          Unser digitaler Assistent beantwortet typische Gäste-Fragen direkt online.
+          Unser digitaler Assistent beantwortet typische Gäste-Fragen direkt auf dieser Seite.
         </p>
 
         <div class="hero-actions">
-          <a href="#chatbot" class="btn btn-primary">🤖 Chatbot testen</a>
-          <a href="#speisekarte" class="btn btn-secondary">Speisekarte ansehen</a>
+          <button class="btn btn-primary" type="button" onclick="openChat()">🤖 Chatbot direkt öffnen</button>
+          <a href="#chatbot" class="btn btn-secondary">Eingebetteten Chat ansehen</a>
         </div>
 
         <div class="quick-info">
@@ -671,10 +759,11 @@
     <section id="chatbot">
       <div class="section-title">
         <small>Live-Demo</small>
-        <h2>Teste den Bella-Tavola-Chatbot</h2>
+        <h2>Teste den Bella-Tavola-Chatbot direkt auf der Seite</h2>
         <p>
-          Frag den Bot zum Beispiel nach Öffnungszeiten, Reservierung, Pizza-Preisen,
-          veganen Optionen, Abholung, Zahlungsmöglichkeiten oder Allergenen.
+          Der Bot ist hier eingebettet. Du musst keine extra Seite öffnen.
+          Frag ihn nach Öffnungszeiten, Reservierung, Pizza-Preisen, veganen Optionen,
+          Abholung, Zahlungsmöglichkeiten oder Allergenen.
         </p>
       </div>
 
@@ -689,7 +778,7 @@
           <p><strong>„Kann ich mit Apple Pay bezahlen?“</strong></p>
           <p><strong>„Ich habe eine Glutenunverträglichkeit. Was kann ich essen?“</strong></p>
           <br />
-          <a class="btn btn-primary" href="https://cdn.botpress.cloud/webchat/v3.6/shareable.html?configUrl=https://files.bpcontent.cloud/2026/04/28/16/20260428165640-LQUW9ZNJ.json" target="_blank" rel="noopener">Chatbot in neuem Fenster öffnen</a>
+          <button class="btn btn-primary" type="button" onclick="openChat()">Chatfenster auf dieser Seite öffnen</button>
         </div>
 
         <div class="chat-preview">
@@ -712,7 +801,7 @@
             beantworten und bei Allergien vorsichtig an das Restaurant verweisen.
           </p>
         </div>
-        <a href="#chatbot" class="btn btn-primary">Bot starten</a>
+        <button class="btn btn-primary" type="button" onclick="openChat()">Bot starten</button>
       </div>
     </section>
 
@@ -791,9 +880,21 @@
     </section>
   </main>
 
-  <a class="floating-chat" href="https://cdn.botpress.cloud/webchat/v3.6/shareable.html?configUrl=https://files.bpcontent.cloud/2026/04/28/16/20260428165640-LQUW9ZNJ.json" target="_blank" rel="noopener">
+  <div class="chat-widget" id="chatWidget" aria-hidden="true">
+    <div class="chat-widget-header">
+      <span>🤖 Bella Tavola Assistent</span>
+      <button class="chat-close" type="button" onclick="closeChat()" aria-label="Chat schließen">×</button>
+    </div>
+    <iframe
+      src="https://cdn.botpress.cloud/webchat/v3.6/shareable.html?configUrl=https://files.bpcontent.cloud/2026/04/28/16/20260428165640-LQUW9ZNJ.json"
+      title="Bella Tavola KI-Chatbot"
+      allow="clipboard-read; clipboard-write">
+    </iframe>
+  </div>
+
+  <button class="floating-chat-button" type="button" onclick="toggleChat()">
     🤖 Chatbot öffnen
-  </a>
+  </button>
 
   <footer>
     <div>
@@ -805,5 +906,33 @@
       für lokale Restaurants. Alle Kontaktdaten und Inhalte dienen nur als Beispiel.
     </p>
   </footer>
+
+  <script>
+    const chatWidget = document.getElementById("chatWidget");
+
+    function openChat() {
+      chatWidget.classList.add("open");
+      chatWidget.setAttribute("aria-hidden", "false");
+    }
+
+    function closeChat() {
+      chatWidget.classList.remove("open");
+      chatWidget.setAttribute("aria-hidden", "true");
+    }
+
+    function toggleChat() {
+      if (chatWidget.classList.contains("open")) {
+        closeChat();
+      } else {
+        openChat();
+      }
+    }
+
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "Escape") {
+        closeChat();
+      }
+    });
+  </script>
 </body>
 </html>
