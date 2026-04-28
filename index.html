@@ -2,204 +2,808 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SoleKing – Dein Schuhladen in Neu-Ulm</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Bella Tavola | Italienisches Restaurant in Neu-Ulm</title>
+  <meta name="description" content="Bella Tavola Demo-Webseite mit integriertem KI-Chatbot für Restaurants." />
+
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --black: #0a0a0a; --white: #f5f4f0; --accent: #e8ff47; --gray: #1c1c1c; }
-    html { scroll-behavior: smooth; }
-    body { background: var(--black); color: var(--white); font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+    :root {
+      --bg: #fff8ef;
+      --paper: #ffffff;
+      --dark: #211813;
+      --muted: #6c6258;
+      --accent: #b63a2a;
+      --accent-dark: #8d2d22;
+      --gold: #d8a441;
+      --green: #2d6848;
+      --border: rgba(33, 24, 19, 0.12);
+      --shadow: 0 22px 55px rgba(33, 24, 19, 0.14);
+      --radius: 24px;
+    }
 
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 2.5rem; background: rgba(10,10,10,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid #222; }
-    .logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 0.08em; }
-    .logo span { color: var(--accent); }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { color: #888; text-decoration: none; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--accent); }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 80px; }
-    .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 5rem 3rem 5rem 4rem; }
-    .hero-tag { display: inline-block; background: var(--accent); color: var(--black); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.4rem 0.9rem; margin-bottom: 2rem; width: fit-content; }
-    .hero-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(4rem, 8vw, 7rem); line-height: 0.95; }
-    .hero-title em { font-style: normal; color: var(--accent); display: block; }
-    .hero-sub { margin-top: 2rem; color: #888; font-size: 1rem; line-height: 1.7; max-width: 380px; }
-    .hero-cta { margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-primary { background: var(--accent); color: var(--black); border: none; padding: 0.9rem 2rem; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; text-decoration: none; display: inline-block; transition: transform 0.15s; }
-    .btn-primary:hover { transform: translateY(-2px); }
-    .btn-secondary { background: transparent; color: var(--white); border: 1px solid #333; padding: 0.9rem 2rem; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; display: inline-block; transition: border-color 0.2s, color 0.2s; }
-    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+    html {
+      scroll-behavior: smooth;
+    }
 
-    .hero-right { background: var(--gray); overflow: hidden; }
-    .hero-img-grid { display: grid; grid-template-rows: 1fr 1fr; height: 100%; }
-    .hero-img-top { background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #333; position: relative; overflow: hidden; }
-    .shoe-placeholder { font-family: 'Bebas Neue', sans-serif; font-size: 8rem; opacity: 0.06; position: absolute; }
-    .brand-pill { background: var(--accent); color: var(--black); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.5rem 1.2rem; z-index: 1; }
-    .hero-img-bottom { display: grid; grid-template-columns: 1fr 1fr; }
-    .stat-box { padding: 2rem; border-right: 1px solid #333; display: flex; flex-direction: column; justify-content: flex-end; }
-    .stat-box:last-child { border-right: none; }
-    .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; color: var(--accent); line-height: 1; }
-    .stat-label { font-size: 0.8rem; color: #666; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.3rem; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
 
-    .brands-section { padding: 4rem; border-top: 1px solid #1a1a1a; border-bottom: 1px solid #1a1a1a; }
-    .brands-label { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: #555; margin-bottom: 2rem; text-align: center; }
-    .brands-grid { display: flex; }
-    .brand-item { flex: 1; padding: 1.5rem; text-align: center; border-right: 1px solid #1a1a1a; font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 0.1em; color: #333; transition: color 0.2s; }
-    .brand-item:last-child { border-right: none; }
-    .brand-item:hover { color: var(--accent); }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-    .chat-section { padding: 7rem 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; border-top: 1px solid #1a1a1a; }
-    .section-label { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; }
-    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 4vw, 4rem); line-height: 1; margin-bottom: 1.5rem; }
-    .section-body { color: #888; font-size: 0.95rem; line-height: 1.8; margin-bottom: 2rem; }
-    .feature-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
-    .feature-list li { display: flex; align-items: center; gap: 0.8rem; font-size: 0.9rem; color: #ccc; }
-    .feature-list li::before { content: ''; width: 6px; height: 6px; background: var(--accent); flex-shrink: 0; }
+    .topbar {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 10px 18px;
+      font-size: 14px;
+      font-weight: 700;
+    }
 
-    .bot-frame { background: var(--gray); border: 1px solid #2a2a2a; height: 520px; overflow: hidden; }
-    .bot-frame-header { background: #161616; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 0.8rem; border-bottom: 1px solid #2a2a2a; }
-    .bot-avatar { width: 32px; height: 32px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 1rem; color: var(--black); }
-    .bot-name { font-size: 0.85rem; font-weight: 500; }
-    .bot-status { display: flex; align-items: center; gap: 0.4rem; font-size: 0.72rem; color: #666; }
-    .status-dot { width: 6px; height: 6px; background: #4caf50; border-radius: 50%; animation: pulse 2s ease infinite; }
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 7%;
+      background: rgba(255, 248, 239, 0.92);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(14px);
+    }
 
-    .info-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid #1a1a1a; }
-    .info-card { padding: 3.5rem 3rem; border-right: 1px solid #1a1a1a; }
-    .info-card:last-child { border-right: none; }
-    .info-icon { font-size: 1.5rem; margin-bottom: 1.2rem; }
-    .info-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; margin-bottom: 0.8rem; }
-    .info-text { color: #666; font-size: 0.88rem; line-height: 1.8; }
+    .logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.12;
+      font-weight: 900;
+    }
 
-    footer { padding: 2rem 4rem; border-top: 1px solid #1a1a1a; display: flex; justify-content: space-between; align-items: center; }
-    .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 0.1em; color: #333; }
-    .footer-logo span { color: var(--accent); }
-    .footer-copy { font-size: 0.78rem; color: #444; }
+    .logo-main {
+      font-size: 24px;
+      color: var(--accent);
+      letter-spacing: -0.3px;
+    }
 
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    .logo-sub {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 700;
+    }
 
-    @media (max-width: 768px) {
-      .hero { grid-template-columns: 1fr; }
-      .hero-right { min-height: 260px; }
-      .hero-left { padding: 4rem 1.5rem 3rem; }
-      .chat-section { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 1.5rem; }
-      .info-grid { grid-template-columns: 1fr; }
-      .info-card { border-right: none; border-bottom: 1px solid #1a1a1a; }
-      .brands-grid { flex-wrap: wrap; }
-      .brand-item { flex: 0 0 33%; border-bottom: 1px solid #1a1a1a; }
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
-      footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
-      .brands-section { padding: 3rem 1.5rem; }
+    .navlinks {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .navlinks a:hover {
+      color: var(--accent);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      border-radius: 999px;
+      padding: 14px 20px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      box-shadow: 0 14px 30px rgba(182, 58, 42, 0.25);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--dark);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      min-height: 78vh;
+      padding: 80px 7% 70px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+      background:
+        radial-gradient(circle at 12% 15%, rgba(216, 164, 65, 0.24), transparent 28%),
+        radial-gradient(circle at 86% 15%, rgba(45, 104, 72, 0.15), transparent 30%);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(182, 58, 42, 0.1);
+      color: var(--accent);
+      font-weight: 900;
+      font-size: 14px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 6vw, 74px);
+      line-height: 0.96;
+      letter-spacing: -2.6px;
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      max-width: 660px;
+      font-size: 19px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 30px;
+    }
+
+    .quick-info {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .info-card {
+      background: rgba(255,255,255,0.78);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 16px;
+    }
+
+    .info-card strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .info-card span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .image-card {
+      background: white;
+      border-radius: 34px;
+      padding: 26px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .food-image {
+      min-height: 460px;
+      border-radius: 28px;
+      overflow: hidden;
+      background:
+        linear-gradient(rgba(33, 24, 19, 0.12), rgba(33, 24, 19, 0.64)),
+        url("https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?auto=format&fit=crop&w=1200&q=80");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: flex-end;
+      padding: 28px;
+      color: white;
+    }
+
+    .food-image h2 {
+      font-size: 32px;
+      margin-bottom: 6px;
+    }
+
+    section {
+      padding: 80px 7%;
+    }
+
+    .section-title {
+      max-width: 790px;
+      margin-bottom: 36px;
+    }
+
+    .section-title small {
+      display: block;
+      color: var(--accent);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 10px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(32px, 4vw, 48px);
+      line-height: 1.06;
+      letter-spacing: -1.3px;
+      margin-bottom: 14px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: 0 13px 34px rgba(33, 24, 19, 0.07);
+    }
+
+    .card h3 {
+      font-size: 23px;
+      margin-bottom: 12px;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+    }
+
+    .menu-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    .menu-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .menu-item span:first-child {
+      font-weight: 900;
+    }
+
+    .menu-item span:last-child {
+      color: var(--accent);
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .hours {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .hours li {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 11px;
+    }
+
+    .hours li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .highlight {
+      background: var(--dark);
+      color: white;
+      border-radius: 34px;
+      padding: 54px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 28px;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+
+    .highlight h2 {
+      font-size: clamp(31px, 4vw, 46px);
+      line-height: 1.07;
+      margin-bottom: 12px;
+    }
+
+    .highlight p {
+      color: rgba(255,255,255,0.76);
+      max-width: 760px;
+      font-size: 18px;
+    }
+
+    .faq {
+      display: grid;
+      gap: 14px;
+    }
+
+    details {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px 22px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 900;
+      font-size: 17px;
+    }
+
+    details p {
+      margin-top: 10px;
+      color: var(--muted);
+    }
+
+    .contact-line {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contact-line:first-child {
+      padding-top: 0;
+    }
+
+    .contact-line:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .contact-line strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .contact-line span {
+      color: var(--muted);
+    }
+
+    .chat-demo-box {
+      border: 2px dashed rgba(182, 58, 42, 0.25);
+      background: rgba(182, 58, 42, 0.05);
+    }
+
+    .chat-preview {
+      margin-top: 18px;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      height: 620px;
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .chat-preview iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .floating-chat {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent);
+      color: white;
+      padding: 15px 18px;
+      border-radius: 999px;
+      font-weight: 900;
+      box-shadow: 0 18px 42px rgba(182, 58, 42, 0.36);
+      transition: 0.2s ease;
+    }
+
+    .floating-chat:hover {
+      transform: translateY(-3px);
+      background: var(--accent-dark);
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 36px 7%;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    footer span,
+    .demo-note {
+      color: rgba(255,255,255,0.66);
+    }
+
+    .demo-note {
+      max-width: 760px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .grid-2,
+      .grid-3,
+      .highlight {
+        grid-template-columns: 1fr;
+      }
+
+      .navlinks {
+        display: none;
+      }
+
+      .quick-info {
+        grid-template-columns: 1fr;
+      }
+
+      .highlight {
+        padding: 34px;
+      }
+
+      .food-image {
+        min-height: 360px;
+      }
+
+      .chat-preview {
+        height: 580px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .navbar,
+      .hero,
+      section,
+      footer {
+        padding-left: 5%;
+        padding-right: 5%;
+      }
+
+      .hero {
+        padding-top: 54px;
+      }
+
+      h1 {
+        letter-spacing: -1.6px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .card {
+        padding: 22px;
+      }
+
+      .floating-chat {
+        left: 16px;
+        right: 16px;
+        justify-content: center;
+      }
+
+      .chat-preview {
+        height: 540px;
+      }
     }
   </style>
 </head>
-<body>
 
-  <nav>
-    <div class="logo">Sole<span>King</span></div>
-    <ul class="nav-links">
-      <li><a href="#chat">KI-Assistent</a></li>
-      <li><a href="#info">Info</a></li>
-      <li><a href="tel:073112345678">0731 / 123 456 78</a></li>
-    </ul>
+<body>
+  <div class="topbar">
+    🍝 Demo-Webseite mit integriertem KI-Chatbot – perfekt als Verkaufsbeispiel für Restaurants
+  </div>
+
+  <nav class="navbar">
+    <a class="logo" href="#start">
+      <span class="logo-main">Bella Tavola</span>
+      <span class="logo-sub">Italienisches Restaurant · Neu-Ulm</span>
+    </a>
+
+    <div class="navlinks">
+      <a href="#speisekarte">Speisekarte</a>
+      <a href="#zeiten">Öffnungszeiten</a>
+      <a href="#chatbot">Chatbot testen</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
   </nav>
 
-  <section class="hero">
-    <div class="hero-left">
-      <div class="hero-tag">Neu-Ulm · Bahnhofstraße 12</div>
-      <h1 class="hero-title">Dein Step.<br><em>Dein King.</em></h1>
-      <p class="hero-sub">Sneaker, Business &amp; Sport – persönlich beraten, direkt vor Ort. Oder frag einfach Sole, unseren digitalen Assistenten – rund um die Uhr.</p>
-      <div class="hero-cta">
-        <a href="#chat" class="btn-primary">Sole fragen →</a>
-        <a href="tel:073112345678" class="btn-secondary">Anrufen</a>
-      </div>
-    </div>
-    <div class="hero-right">
-      <div class="hero-img-grid">
-        <div class="hero-img-top">
-          <div class="shoe-placeholder">SOLE</div>
-          <div class="brand-pill">Nike · Adidas · New Balance</div>
-        </div>
-        <div class="hero-img-bottom">
-          <div class="stat-box">
-            <div class="stat-num">8+</div>
-            <div class="stat-label">Marken im Sortiment</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-num">30</div>
-            <div class="stat-label">Tage Rückgabe</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <main id="start">
+    <section class="hero">
+      <div>
+        <div class="badge">🇮🇹 Pizza · Pasta · Dolce Vita</div>
+        <h1>Italienisch genießen in Neu-Ulm.</h1>
+        <p>
+          Willkommen bei Bella Tavola – deinem gemütlichen italienischen Restaurant
+          mit hausgemachter Pasta, Pizza aus dem Steinofen und herzlichem Service.
+          Unser digitaler Assistent beantwortet typische Gäste-Fragen direkt online.
+        </p>
 
-  <section class="brands-section">
-    <div class="brands-label">Unsere Marken</div>
-    <div class="brands-grid">
-      <div class="brand-item">Nike</div>
-      <div class="brand-item">Adidas</div>
-      <div class="brand-item">New Balance</div>
-      <div class="brand-item">Vans</div>
-      <div class="brand-item">On Running</div>
-      <div class="brand-item">Dr. Martens</div>
-      <div class="brand-item">Birkenstock</div>
-    </div>
-  </section>
+        <div class="hero-actions">
+          <a href="#chatbot" class="btn btn-primary">🤖 Chatbot testen</a>
+          <a href="#speisekarte" class="btn btn-secondary">Speisekarte ansehen</a>
+        </div>
 
-  <section class="chat-section" id="chat">
-    <div class="chat-left">
-      <div class="section-label">KI-Assistent</div>
-      <h2 class="section-title">Frag Sole –<br>Immer da.</h2>
-      <p class="section-body">Sole ist unser digitaler Assistent – er kennt unser Sortiment, unsere Öffnungszeiten und kann dir bei der Auswahl helfen. Jederzeit, ohne Wartezeit.</p>
-      <ul class="feature-list">
-        <li>Größen- und Modellberatung</li>
-        <li>Infos zu Versand &amp; Rückgabe</li>
-        <li>Beratungstermin anfragen</li>
-        <li>Öffnungszeiten &amp; Standort</li>
-        <li>Zahlungsarten &amp; Gutscheine</li>
-      </ul>
-    </div>
-    <div class="chat-right">
-      <div class="bot-frame">
-        <div class="bot-frame-header">
-          <div class="bot-avatar">S</div>
+        <div class="quick-info">
+          <div class="info-card">
+            <strong>📍 Adresse</strong>
+            <span>Augsburger Straße 18, 89231 Neu-Ulm</span>
+          </div>
+          <div class="info-card">
+            <strong>⏰ Öffnungszeiten</strong>
+            <span>Di–Do 17–22 Uhr · Fr 17–23 Uhr</span>
+          </div>
+          <div class="info-card">
+            <strong>💬 KI-Assistent</strong>
+            <span>Reservierung, Preise, Allergene & Abholung</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="image-card">
+        <div class="food-image">
           <div>
-            <div class="bot-name">Sole · SoleKing Assistent</div>
-            <div class="bot-status">
-              <span class="status-dot"></span>
-              Online – antwortet sofort
-            </div>
+            <h2>Frisch aus dem Steinofen</h2>
+            <p>Pizza, Pasta, Antipasti und italienische Klassiker.</p>
           </div>
         </div>
-        <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
-        <script src="https://files.bpcontent.cloud/2026/04/22/16/20260422165920-Q6CSAVJB.js" defer></script>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="info-grid" id="info">
-    <div class="info-card">
-      <div class="info-icon">📍</div>
-      <div class="info-title">Standort</div>
-      <div class="info-text">Bahnhofstraße 12<br>89231 Neu-Ulm<br><br><a href="https://maps.google.com" style="color:var(--accent);text-decoration:none;font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;">Route planen →</a></div>
-    </div>
-    <div class="info-card">
-      <div class="info-icon">🕐</div>
-      <div class="info-title">Öffnungszeiten</div>
-      <div class="info-text">Mo – Fr &nbsp;&nbsp;09:30 – 19:00<br>Samstag &nbsp;09:30 – 18:00<br>Sonntag &nbsp;geschlossen</div>
-    </div>
-    <div class="info-card">
-      <div class="info-icon">📦</div>
-      <div class="info-title">Versand &amp; Rückgabe</div>
-      <div class="info-text">Versand ab 4,95 € · gratis ab 80 €<br>Lieferzeit 2–4 Werktage<br>30 Tage Rückgaberecht<br>Kostenloses Retourenlabel</div>
-    </div>
-  </section>
+    <section id="speisekarte">
+      <div class="section-title">
+        <small>Unsere Auswahl</small>
+        <h2>Beliebte Gerichte</h2>
+        <p>
+          Eine kleine Auswahl aus unserer Demo-Speisekarte. Für Preise, Allergene,
+          vegane Optionen oder Abholung kannst du direkt den Chatbot fragen.
+        </p>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>🍕 Pizza</h3>
+          <div class="menu-list">
+            <div class="menu-item"><span>Pizza Margherita</span><span>10,90 €</span></div>
+            <div class="menu-item"><span>Pizza Salami</span><span>12,90 €</span></div>
+            <div class="menu-item"><span>Pizza Vegetariana</span><span>13,90 €</span></div>
+            <div class="menu-item"><span>Pizza Bella Tavola</span><span>15,90 €</span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>🍝 Pasta</h3>
+          <div class="menu-list">
+            <div class="menu-item"><span>Spaghetti Napoli</span><span>10,90 €</span></div>
+            <div class="menu-item"><span>Spaghetti Carbonara</span><span>13,50 €</span></div>
+            <div class="menu-item"><span>Lasagne al Forno</span><span>14,90 €</span></div>
+            <div class="menu-item"><span>Tagliatelle al Salmone</span><span>16,90 €</span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>🍰 Desserts</h3>
+          <div class="menu-list">
+            <div class="menu-item"><span>Tiramisu</span><span>7,50 €</span></div>
+            <div class="menu-item"><span>Panna Cotta</span><span>6,90 €</span></div>
+            <div class="menu-item"><span>Schokoladensoufflé</span><span>8,50 €</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="zeiten">
+      <div class="grid grid-2">
+        <div>
+          <div class="section-title">
+            <small>Besuch planen</small>
+            <h2>Öffnungszeiten</h2>
+            <p>
+              Die warme Küche ist in der Regel bis 30 Minuten vor Schließung geöffnet.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <ul class="hours">
+            <li><strong>Montag</strong><span>Ruhetag</span></li>
+            <li><strong>Dienstag – Donnerstag</strong><span>17:00 – 22:00 Uhr</span></li>
+            <li><strong>Freitag</strong><span>17:00 – 23:00 Uhr</span></li>
+            <li><strong>Samstag</strong><span>12:00 – 23:00 Uhr</span></li>
+            <li><strong>Sonntag</strong><span>12:00 – 21:00 Uhr</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="chatbot">
+      <div class="section-title">
+        <small>Live-Demo</small>
+        <h2>Teste den Bella-Tavola-Chatbot</h2>
+        <p>
+          Frag den Bot zum Beispiel nach Öffnungszeiten, Reservierung, Pizza-Preisen,
+          veganen Optionen, Abholung, Zahlungsmöglichkeiten oder Allergenen.
+        </p>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="card chat-demo-box">
+          <h3>💬 Gute Testfragen</h3>
+          <p>Nutze diese Fragen, um die Demo einem Restaurantbesitzer zu zeigen:</p>
+          <br />
+          <p><strong>„Was kostet eine Pizza Salami?“</strong></p>
+          <p><strong>„Kann ich Samstag um 19 Uhr für 4 Personen reservieren?“</strong></p>
+          <p><strong>„Habt ihr vegane Gerichte?“</strong></p>
+          <p><strong>„Kann ich mit Apple Pay bezahlen?“</strong></p>
+          <p><strong>„Ich habe eine Glutenunverträglichkeit. Was kann ich essen?“</strong></p>
+          <br />
+          <a class="btn btn-primary" href="https://cdn.botpress.cloud/webchat/v3.6/shareable.html?configUrl=https://files.bpcontent.cloud/2026/04/28/16/20260428165640-LQUW9ZNJ.json" target="_blank" rel="noopener">Chatbot in neuem Fenster öffnen</a>
+        </div>
+
+        <div class="chat-preview">
+          <iframe
+            src="https://cdn.botpress.cloud/webchat/v3.6/shareable.html?configUrl=https://files.bpcontent.cloud/2026/04/28/16/20260428165640-LQUW9ZNJ.json"
+            title="Bella Tavola KI-Chatbot"
+            loading="lazy"
+            allow="clipboard-read; clipboard-write">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <section id="reservierung">
+      <div class="highlight">
+        <div>
+          <h2>Tisch reservieren oder Frage stellen?</h2>
+          <p>
+            Der Chatbot kann Reservierungswünsche aufnehmen, Fragen zur Speisekarte
+            beantworten und bei Allergien vorsichtig an das Restaurant verweisen.
+          </p>
+        </div>
+        <a href="#chatbot" class="btn btn-primary">Bot starten</a>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">
+        <small>Häufige Fragen</small>
+        <h2>Das kann der Bot beantworten</h2>
+        <p>
+          Genau solche Fragen stellen Gäste täglich. Der Bot nimmt dem Restaurant
+          wiederkehrende Standardfragen ab.
+        </p>
+      </div>
+
+      <div class="faq">
+        <details>
+          <summary>Kann ich einen Tisch reservieren?</summary>
+          <p>Ja, der Bot kann deinen Reservierungswunsch aufnehmen. Die finale Bestätigung erfolgt durch das Restaurant.</p>
+        </details>
+
+        <details>
+          <summary>Kann ich Essen abholen?</summary>
+          <p>Ja, Abholung ist während der Öffnungszeiten möglich. Bestellungen erfolgen telefonisch.</p>
+        </details>
+
+        <details>
+          <summary>Gibt es vegane Optionen?</summary>
+          <p>Vegane Optionen sind auf Anfrage möglich, zum Beispiel Pizza ohne Käse oder Pasta mit Tomatensauce.</p>
+        </details>
+
+        <details>
+          <summary>Was ist bei Allergien wichtig?</summary>
+          <p>Bei Allergien oder Unverträglichkeiten bitte direkt beim Restaurant nachfragen. Der Bot gibt keine verbindliche Allergenberatung.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="kontakt">
+      <div class="section-title">
+        <small>Kontakt</small>
+        <h2>So erreichst du Bella Tavola</h2>
+        <p>
+          Diese Angaben sind Demo-Daten. Für echte Kunden würdest du hier deren
+          Adresse, Telefonnummer, E-Mail und Website eintragen.
+        </p>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="contact-line">
+            <strong>Adresse</strong>
+            <span>Bella Tavola, Augsburger Straße 18, 89231 Neu-Ulm</span>
+          </div>
+          <div class="contact-line">
+            <strong>Telefon</strong>
+            <span>0731 12345678</span>
+          </div>
+          <div class="contact-line">
+            <strong>E-Mail</strong>
+            <span>kontakt@bella-tavola-demo.de</span>
+          </div>
+          <div class="contact-line">
+            <strong>Zahlung</strong>
+            <span>Bar, EC-Karte, Kreditkarte, Apple Pay und Google Pay</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>🤖 Warum diese Demo stark ist</h3>
+          <p>
+            Sie zeigt einem lokalen Restaurant direkt, welchen Nutzen ein KI-Chatbot
+            bringt: weniger wiederkehrende Fragen, bessere Erreichbarkeit und ein
+            modernerer Eindruck auf der Website.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a class="floating-chat" href="https://cdn.botpress.cloud/webchat/v3.6/shareable.html?configUrl=https://files.bpcontent.cloud/2026/04/28/16/20260428165640-LQUW9ZNJ.json" target="_blank" rel="noopener">
+    🤖 Chatbot öffnen
+  </a>
 
   <footer>
-    <div class="footer-logo">Sole<span>King</span></div>
-    <div class="footer-copy">© 2025 SoleKing · Bahnhofstraße 12 · 89231 Neu-Ulm · hallo@soleking-demo.de</div>
+    <div>
+      <strong>Bella Tavola</strong><br />
+      <span>Demo-Webseite mit KI-Chatbot</span>
+    </div>
+    <p class="demo-note">
+      Hinweis: Diese Webseite ist eine fiktive Demo für die Präsentation eines KI-Chatbots
+      für lokale Restaurants. Alle Kontaktdaten und Inhalte dienen nur als Beispiel.
+    </p>
   </footer>
-
 </body>
 </html>
